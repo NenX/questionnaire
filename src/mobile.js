@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './utils/serviceWorker';
+class App extends React.Component {
+    render() {
+        return "我是页面1"
+    }
+};
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
