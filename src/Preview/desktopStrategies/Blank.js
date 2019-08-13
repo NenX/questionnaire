@@ -1,5 +1,4 @@
 import TextArea from 'antd/lib/input/TextArea';
-import styles from './index.less';
 
 export default React.memo(
   connect(null)(({ value, onChange }) => {
@@ -7,7 +6,6 @@ export default React.memo(
       <TextArea
         value={value}
         onChange={e => onChange(e.target.value)}
-        className={styles.datasetItem}
       />
     );
   })

@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './utils/serviceWorker';
+import * as serviceWorker from '../utils/serviceWorker';
+import a from './index.module.less'
+console.log(a)
 class App extends React.Component {
     render() {
-        return "我是页面1"
+        return (
+            <div className={a.a}>
+                页面2222
+            </div>
+        )
     }
 };
 

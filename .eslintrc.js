@@ -23,6 +23,7 @@ module.exports = {
     F_VALUE: true,
     F_LABEL: true,
     arguments: true,
+    inject: true
   },
 
 

@@ -1,5 +1,4 @@
 import { Menu, Dropdown, Icon, Button } from 'antd';
-import styles from './index.less';
 
 export default React.memo(
   connect(null)(({ dataset, value, onChange }) => {
@@ -19,7 +18,7 @@ export default React.memo(
 
     return (
       <Dropdown overlay={menu}>
-        <div className={styles.datasetItem}>
+        <div >
           <Button>
             {label || '请选择'}
 

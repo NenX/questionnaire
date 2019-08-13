@@ -1,16 +1,15 @@
 import { Radio } from 'antd';
-import { dispatchCreator } from '../../models/questionnaireModel';
 
 export default React.memo(
-  connect(null)(({ dataset, value, onChange, dispatch, jumps = [] }) => {
-    const _dispatch = dispatchCreator(dispatch);
+  inject("store")(({ dataset, value, onChange, dispatch, jumps = [] }) => {
+    const { questionToScroll, setQuestionToScroll } = store
     return (
       <Radio.Group
         onChange={e => {
           const { value: selectedValue } = e.target;
           const jumpData = jumps.find(_ => _.condition === selectedValue);
           if (jumpData) {
-            _dispatch('updateState', { questionToScroll: jumpData.target });
+            setQuestionToScroll(jumpData.target);
           }
           onChange(selectedValue);
         }}

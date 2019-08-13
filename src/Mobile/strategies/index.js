@@ -5,9 +5,8 @@ import DropdownType from './Dropdown';
 import Blank from './Blank';
 import Score from './Score';
 import Remark from './Remark';
-
+import styles from './index.module.less'
 import useScroll from '@/utils/useScroll';
-import { MODEL, dispatchCreator } from '../../models/questionnaireModel';
 
 const { single, multiple, dropdown, blank, score, remark } = QUESTION_SYMBOL;
 
@@ -20,24 +19,24 @@ const RenderType = {
   [remark]: Remark,
 };
 
-function mapStateToProps(rootState) {
-  return rootState[MODEL];
-}
 
-export default connect(mapStateToProps)(props => {
+export default inject("store")(props => {
+
   const [ref, scroll] = useScroll();
-  const { type, questionToScroll, dispatch, id } = props;
-  const _dispatch = dispatchCreator(dispatch);
+  const { type, store, id } = props;
+
+
+  const { questionToScroll, setQuestionToScroll } = store
   useEffect(() => {
     if (questionToScroll === id) {
       scroll();
-      _dispatch('updateState', { questionToScroll: '' });
+      setQuestionToScroll(null)
     }
   }, [questionToScroll]);
 
   const Type = RenderType[type];
   return (
-    <div ref={ref}>
+    <div ref={ref} className={styles.question}>
       <Type {...props} />
     </div>
   );

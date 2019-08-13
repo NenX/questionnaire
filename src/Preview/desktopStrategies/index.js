@@ -6,7 +6,6 @@ import Blank from './Blank';
 import Score from './Score';
 import Remark from './Remark';
 import useScroll from '@/utils/useScroll';
-import { MODEL, dispatchCreator } from '../../models/questionnaireModel';
 
 const { single, multiple, dropdown, blank, score, remark } = QUESTION_SYMBOL;
 

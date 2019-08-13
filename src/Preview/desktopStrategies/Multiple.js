@@ -1,5 +1,4 @@
 import { Checkbox } from 'antd';
-import styles from './index.less';
 
 export default React.memo(
   connect(null)(({ dataset, value, onChange }) => {
@@ -12,7 +11,7 @@ export default React.memo(
       >
         {dataset.map(({ label, id }) => {
           return (
-            <Checkbox className={styles.datasetItem} value={id} key={id}>
+            <Checkbox value={id} key={id}>
               {label}
             </Checkbox>
           );
