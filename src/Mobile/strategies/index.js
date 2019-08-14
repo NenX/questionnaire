@@ -5,7 +5,6 @@ import DropdownType from './Dropdown';
 import Blank from './Blank';
 import Score from './Score';
 import Remark from './Remark';
-import styles from './index.module.less'
 import useScroll from '@/utils/useScroll';
 
 const { single, multiple, dropdown, blank, score, remark } = QUESTION_SYMBOL;
@@ -36,7 +35,7 @@ export default inject("store")(props => {
 
   const Type = RenderType[type];
   return (
-    <div ref={ref} className={styles.question}>
+    <div ref={ref} >
       <Type {...props} />
     </div>
   );
