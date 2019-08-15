@@ -18,24 +18,21 @@ const RenderType = {
   [remark]: Remark,
 };
 
-
-export default inject("store")(props => {
-
+export default inject('store')(props => {
   const [ref, scroll] = useScroll();
   const { type, store, id } = props;
 
-
-  const { questionToScroll, setQuestionToScroll } = store
+  const { questionToScroll, setQuestionToScroll } = store;
   useEffect(() => {
     if (questionToScroll === id) {
       scroll();
-      setQuestionToScroll(null)
+      setQuestionToScroll(null);
     }
   }, [questionToScroll]);
 
   const Type = RenderType[type];
   return (
-    <div ref={ref} >
+    <div ref={ref}>
       <Type {...props} />
     </div>
   );
